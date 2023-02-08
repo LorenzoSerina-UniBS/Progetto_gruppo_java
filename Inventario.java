@@ -22,21 +22,16 @@ public class Inventario {
             numeroVeicoli--;
         }
     }
-    public Veicolo cercaVeicolo(String targa) {
-        int i = 0;
-        while (i < numeroVeicoli && !veicoli[i].getTarga().equals(targa)) {
-            i++;
-        }
-        if (i < numeroVeicoli) {
-            return veicoli[i];
-        } else {
-            return null;
-        }
-    }
     public void visualizzaVeicoli() {
         for (int i = 0; i < numeroVeicoli; i++) {
             System.out.println(veicoli[i]);
         }
+    }
+    public int getNumeroVeicoli() {
+        return numeroVeicoli;
+    }
+    public Veicolo getVeicolo(int i) {
+        return veicoli[i];
     }
     
 }

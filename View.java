@@ -1,26 +1,71 @@
 package progetto_gruppo;
 
-import java.awt.event.*;  
+import javax.swing.event.*;
 import javax.swing.*;
-// interfaccia grafica che permetta all'utente di inserire nuovi veicoli, visualizzare i veicoli esistenti e eliminare veicoli. Realizzato con JavaSwing.
 
-public class View {
-  
-    
-    JFrame frame = new JFrame("Inventario");
-    JButton b=new JButton("Aggiungi veicolo");
-    public View(){
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 800);
-        frame.setVisible(true);
-        b.setBounds(150,150,100, 40);
-        b.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){  
-                        
-                    }  
-                });  
-        frame.add(b);
-    }
-        
-    
+public class View extends JFrame implements ListSelectionListener{
+
+    Inventario inventario;
+    JFrame f;
+	
+	//lists
+	JList b;
+	
+	// Constructor
+	View(Inventario inventario)
+	{
+        this.inventario = inventario;
+		// Frame initialization
+		f = new JFrame();
+
+		// Frame Title
+		f.setTitle("Inventario");
+        int numero_veicoli= inventario.getNumeroVeicoli();
+        JPanel p =new JPanel();		
+		//create a new label
+		//JLabel l= new JLabel("select your birthday");
+        //l1= new JLabel();
+
+		// Data to be displayed in the JTable
+        String[] data = new String[numero_veicoli];
+        for (int i = 0; i < numero_veicoli ; i++) {
+            Veicolo veicolo = inventario.getVeicolo(i);
+
+            data[i] = "Marca: " + veicolo.getMarca() +" Modello: "+ veicolo.getModello() + " Targa: "+ veicolo.getTarga();
+        }
+
+        b= new JList(data);
+        b.setSelectedIndex(2);
+        b.addListSelectionListener(this);
+
+        p.add(b);
+		
+
+		f.add(p);
+
+		// Frame Size
+		f.setSize(500, 200);
+		// Frame Visible = true
+		f.setVisible(true);
+		
+	}
+
+	public void valueChanged(ListSelectionEvent e)
+	{
+		new MostraVeicolo(inventario.getVeicolo(b.getSelectedIndex()), inventario);
+        f.dispose();
+
+	}
+	
+	// Driver method
+	public static void main(String[] args)
+	{
+        Inventario inventario = new Inventario();
+        inventario.aggiungiVeicolo(new Automobile("Fiat", "Panda", "AA123BB", 3));
+        inventario.aggiungiVeicolo(new Moto("Ducati", "Diavel v4", "BB123CC",3000));
+        inventario.aggiungiVeicolo(new Camion("Fiat", "Panda", "CC123DD", 1000));
+		new View(inventario);
+	}
+
 }
+
