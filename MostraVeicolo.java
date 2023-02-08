@@ -1,6 +1,5 @@
 package progetto_gruppo;
-// Importing required classes
-import java.awt.*;
+
 import java.awt.event.*;
 import javax.swing.*;
 
