@@ -10,7 +10,7 @@ public class MostraVeicolo extends JFrame {
 	static JFrame f;
 
 	// JButton
-	static JButton b, b1, b2, b3;
+	static JButton b, b1, b2;
 
 	// Label to display text
 	static JLabel l, l1, l2, l3;
@@ -77,7 +77,13 @@ public class MostraVeicolo extends JFrame {
                 f.dispose();
             }
         });
-        //b2 = new JButton("Torna indietro");
+        b2 = new JButton("Indietro");
+        b2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new View(inventario);
+                f.dispose();
+            }
+        });
 
         p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
 
@@ -85,7 +91,7 @@ public class MostraVeicolo extends JFrame {
 		// Adding buttons and textfield to panel
 		p.add(b);
 		p.add(b1);
-		//p.add(b2);
+		p.add(b2);
         f.add(p);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,15 +1,20 @@
 package progetto_gruppo;
 
 import javax.swing.event.*;
-import javax.swing.*;
 
-public class View extends JFrame implements ListSelectionListener{
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+
+public class View extends JFrame{
 
     Inventario inventario;
     JFrame f;
 	
 	//lists
-	JList b;
+	JList l;
+    JButton b;
 	
 	// Constructor
 	View(Inventario inventario)
@@ -34,12 +39,29 @@ public class View extends JFrame implements ListSelectionListener{
             data[i] = "Marca: " + veicolo.getMarca() +" Modello: "+ veicolo.getModello() + " Targa: "+ veicolo.getTarga();
         }
 
-        b= new JList(data);
-        b.setSelectedIndex(2);
-        b.addListSelectionListener(this);
+        l= new JList(data);
+        l.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e)
+            {
+                new MostraVeicolo(inventario.getVeicolo(l.getSelectedIndex()), inventario);
+                f.dispose();
+        
+            }
+        });
+        
+        b = new JButton("Aggiungi veicolo");
 
-        p.add(b);
-		
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new AggiungiVeicolo(inventario);
+                f.dispose();
+            }
+        });
+
+
+        p.add(l);
+		p.add(b);
+        
 
 		f.add(p);
 
@@ -50,13 +72,6 @@ public class View extends JFrame implements ListSelectionListener{
 		
 	}
 
-	public void valueChanged(ListSelectionEvent e)
-	{
-		new MostraVeicolo(inventario.getVeicolo(b.getSelectedIndex()), inventario);
-        f.dispose();
-
-	}
-	
 	// Driver method
 	public static void main(String[] args)
 	{

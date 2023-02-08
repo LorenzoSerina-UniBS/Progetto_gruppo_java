@@ -15,50 +15,70 @@ public class ModificaVeicolo extends JFrame{
 
 	// Label to display text
 	static JTextField l, l1, l2, l3;
+    static JLabel e, e1, e2, e3;
 
 
     public ModificaVeicolo(Veicolo veicolo, Inventario inventario) {
 
         f = new JFrame(veicolo.getModello());
         JPanel p = new JPanel();
+        e= new JLabel("Marca");
+        e1= new JLabel("Modello");
+        e2= new JLabel("Targa");
 
         if (veicolo instanceof Automobile)
         {
             Automobile automobile = (Automobile) veicolo;
-            l = new JTextField("Marca: " + automobile.getMarca());
-            l1 = new JTextField("Modello: " + automobile.getModello());
-            l2 = new JTextField("Targa: " + automobile.getTarga());
-            l3 = new JTextField("Porte: " + automobile.getPorte());
+            l = new JTextField(automobile.getMarca());
+            l1 = new JTextField(automobile.getModello());
+            l2 = new JTextField(automobile.getTarga());
+            l3 = new JTextField(automobile.getPorte());
+            e3= new JLabel("Porte");
+            p.add(e);
             p.add(l);
+            p.add(e1);
             p.add(l1);
+            p.add(e2);
             p.add(l2);
+            p.add(e3);
             p.add(l3);
 
         }
         else if (veicolo instanceof Moto)
         {
             Moto moto = (Moto) veicolo;
-            l = new JTextField("Marca: " + moto.getMarca());
-            l1 = new JTextField("Modello: " + moto.getModello());
-            l2 = new JTextField("Targa: " + moto.getTarga());
-            l3 = new JTextField("Cilindrata: " + moto.getCilindrata());
+            l = new JTextField(moto.getMarca());
+            l1 = new JTextField(moto.getModello());
+            l2 = new JTextField(moto.getTarga());
+            l3 = new JTextField(moto.getCilindrata());
+            e3= new JLabel("Cilindrata");
+            p.add(e);
             p.add(l);
+            p.add(e1);
             p.add(l1);
+            p.add(e2);
             p.add(l2);
+            p.add(e3);
             p.add(l3);
 
         }
         else
         {
             Camion camion = (Camion) veicolo;
-            l = new JTextField("Marca: " + camion.getMarca() );
-            l1 = new JTextField("Modello: " + camion.getModello());
-            l2 = new JTextField("Targa: " + camion.getTarga());
-            l3 = new JTextField("Portata: " + camion.getPortata());
+            l = new JTextField(camion.getMarca() );
+            l1 = new JTextField(camion.getModello());
+            l2 = new JTextField(camion.getTarga());
+            l3 = new JTextField(camion.getPortata());
+            e3= new JLabel("Portata");
+            p.add(e);
             p.add(l);
+            p.add(e1);
             p.add(l1);
+            p.add(e2);
             p.add(l2);
+            p.add(e3);
             p.add(l3);
+
                     
         }
 
