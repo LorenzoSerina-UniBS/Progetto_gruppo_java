@@ -108,6 +108,8 @@ public class ModificaVeicolo extends JFrame{
                     new MostraVeicolo(camion, inventario);
                 }
                 inventario.rimuoviVeicolo(veicolo);
+                SaveLoad.save(inventario);
+
                 f.dispose();
             }
         });
@@ -132,7 +134,7 @@ public class ModificaVeicolo extends JFrame{
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        f.setSize(300, 300);
+        f.setSize(500, 500);
         f.setVisible(true);
 
 

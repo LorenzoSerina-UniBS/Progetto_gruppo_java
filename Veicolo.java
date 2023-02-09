@@ -1,5 +1,5 @@
 package progetto_gruppo;
-public class Veicolo{
+public class Veicolo implements java.io.Serializable{
     private String marca;
     private String modello;
     private String targa;

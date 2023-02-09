@@ -1,6 +1,6 @@
 package progetto_gruppo;
 
-public class Moto extends Veicolo {
+public class Moto extends Veicolo implements java.io.Serializable {
     private int cilindrata;
  
     public Moto(String marca, String modello, String targa, int cilindrata) {

@@ -26,6 +26,7 @@ public class View extends JFrame{
 		// Frame Title
 		f.setTitle("Inventario");
         int numero_veicoli= inventario.getNumeroVeicoli();
+        
         JPanel p =new JPanel();		
 		//create a new label
 		//JLabel l= new JLabel("select your birthday");
@@ -58,30 +59,31 @@ public class View extends JFrame{
             }
         });
 
-
         p.add(l);
 		p.add(b);
-
+        p.add(new JScrollPane(l));
+        p.setSize(500, 500);
 
 		f.add(p);
 
 		// Frame Size
-		f.setSize(500, 200);
+		f.setSize(500, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Frame Visible = true
 		f.setVisible(true);
 		
 	}
 
 	// Driver method
-	public static void main(String[] args)
-	{
-        Inventario inventario = new Inventario();
-        inventario.aggiungiVeicolo(new Automobile("Fiat", "Panda", "AA123BB", 3));
-        inventario.aggiungiVeicolo(new Moto("Ducati", "Diavel v4", "BB123CC",3000));
-        inventario.aggiungiVeicolo(new Camion("Fiat", "Panda", "CC123DD", 1000));
+	// public static void main(String[] args)
+	// {
+    //     Inventario inventario = new Inventario();
+    //     inventario.aggiungiVeicolo(new Automobile("Fiat", "Panda", "AA123BB", 3));
+    //     inventario.aggiungiVeicolo(new Moto("Ducati", "Diavel v4", "BB123CC",3000));
+    //     inventario.aggiungiVeicolo(new Camion("Fiat", "Panda", "CC123DD", 1000));
         
-		new View(inventario);
-	}
+	// 	new View(inventario);
+	// }
 
 }
 

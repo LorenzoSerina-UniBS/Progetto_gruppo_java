@@ -1,6 +1,6 @@
 package progetto_gruppo;
 // L'inventario dei veicoli. Questa classe dovrebbe contenere una lista di oggetti di classe “Veicolo” e fornire metodi per aggiungere, rimuovere, cercare e visualizzare i veicoli nell'inventario.
-public class Inventario {
+public class Inventario implements java.io.Serializable{
     private Veicolo[] veicoli;
     private int numeroVeicoli;
     public Inventario() {

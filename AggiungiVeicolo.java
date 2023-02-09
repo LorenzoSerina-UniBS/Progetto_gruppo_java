@@ -68,6 +68,7 @@ public class AggiungiVeicolo extends JFrame{
                             Automobile automobile = new Automobile(l.getText(), l1.getText(), l2.getText(), Integer.parseInt(l3.getText()));
                             inventario.aggiungiVeicolo(automobile);
                             new MostraVeicolo(automobile, inventario);
+                            SaveLoad.save(inventario);
                             f.dispose();
                         }
                     });
@@ -91,6 +92,7 @@ public class AggiungiVeicolo extends JFrame{
                         public void actionPerformed(ActionEvent e) {
                             Moto moto = new Moto(l.getText(), l1.getText(), l2.getText(), Integer.parseInt(l3.getText()));
                             inventario.aggiungiVeicolo(moto);
+                            SaveLoad.save(inventario);
                             new MostraVeicolo(moto, inventario);
                             f.dispose();
 
@@ -115,6 +117,7 @@ public class AggiungiVeicolo extends JFrame{
                         public void actionPerformed(ActionEvent e) {
                             Camion camion = new Camion(l.getText(), l1.getText(), l2.getText(), Integer.parseInt(l3.getText()));
                             inventario.aggiungiVeicolo(camion);
+                            SaveLoad.save(inventario);
                             new MostraVeicolo(camion, inventario);
                             f.dispose();
                         }
@@ -150,7 +153,7 @@ public class AggiungiVeicolo extends JFrame{
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        f.setSize(300, 300);
+        f.setSize(500, 500);
         f.setVisible(true);
 
 

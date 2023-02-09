@@ -1,6 +1,6 @@
 package progetto_gruppo;
 
-public class Camion extends Veicolo {
+public class Camion extends Veicolo implements java.io.Serializable{
     private int portata;
  
     public Camion(String marca, String modello, String targa, int portata) {
